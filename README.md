@@ -1,5 +1,6 @@
 BIG Register SoapClient
 =======================
+[![Build Status](https://travis-ci.org/waarneembemiddeling/bigregister-soap.png?branch=master)](https://travis-ci.org/waarneembemiddeling/bigregister-soap)
 
 This is a lightweight implementation of the [BIG register Soap interface.](https://www.bigregister.nl/zoeken/zoeken_eigen_systeem/).
 A mapping of all the Soap types is provided.
