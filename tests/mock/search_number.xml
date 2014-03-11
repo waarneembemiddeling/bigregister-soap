@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ListHcpApprox3Result xmlns="http://services.cibg.nl/ExternalUser">
+            <ListHcpApprox>
+                <ListHcpApprox3>
+                    <HcpNumber>12345</HcpNumber>
+                    <BirthSurname>Foo</BirthSurname>
+                    <MailingName>G.D. Bar-Foo</MailingName>
+                    <Prefix>van den</Prefix>
+                    <Initial>G.D.</Initial>
+                    <Gender>V</Gender>
+                    <ArticleRegistration>
+                        <ArticleRegistrationExtApp>
+                            <ArticleRegistrationNumber>12345678902</ArticleRegistrationNumber>
+                            <ArticleRegistrationStartDate>2003-12-30T00:00:00</ArticleRegistrationStartDate>
+                            <ArticleRegistrationEndDate>0001-01-01T00:00:00</ArticleRegistrationEndDate>
+                            <ProfessionalGroupCode>01</ProfessionalGroupCode>
+                        </ArticleRegistrationExtApp>
+                    </ArticleRegistration>
+                    <Specialism>
+                        <SpecialismExtApp>
+                            <SpecialismId>44842</SpecialismId>
+                            <ArticleRegistrationNumber>12345678902</ArticleRegistrationNumber>
+                            <StartDate>2008-08-04T00:00:00</StartDate>
+                            <EndDate xsi:nil="true"/>
+                            <TypeOfSpecialismId>15</TypeOfSpecialismId>
+                        </SpecialismExtApp>
+                    </Specialism>
+                    <Mention/>
+                    <JudgmentProvision/>
+                    <Limitation/>
+                </ListHcpApprox3>
+            </ListHcpApprox>
+        </ListHcpApprox3Result>
+    </soap:Body>
+</soap:Envelope>
