@@ -9,7 +9,7 @@ Start by [installing composer](http://getcomposer.org/doc/01-basic-usage.md#inst
 [install the dependencies](http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies).
 
 ## Requirements
-PHP >=5.3.0
+PHP >=5.3.0 and ext-soap
 
 ## Usage
 Creating a new instance is as simple as:
@@ -37,8 +37,9 @@ print_r($response);
 
 ```
 
-## Overriding constructor
-If you want to override the WSDL of the options:
+## Overriding the constructor of the native SoapClient
+We're using the native php SoapClient. If you want to change the WSDL (f.e. if you want to use the demo environment)
+or want to override the options in order to debug the client you can do so:
 
 ```php
 <?php
@@ -50,3 +51,5 @@ $options = array(
 $client = new \Wb\BigRegister\SoapClient\Client($wsdl, $options);
 
 ```
+
+For more information about the native client check [php.net](http://nl3.php.net/manual/en/soapclient.soapclient.php).
