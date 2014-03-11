@@ -7,7 +7,7 @@ php:
 
 notifications:
   email:
-    - richard@vandenbrand.org
+    - richard@waarneembemiddeling.nl
 
 before_script:
     - wget http://getcomposer.org/composer.phar
