@@ -7,13 +7,39 @@ This is a lightweight implementation of the [BIG register Soap interface.](https
 A mapping of all the Soap types is provided.
 
 ## Installation
-Start by [installing composer](http://getcomposer.org/doc/01-basic-usage.md#installation) and finally
-[install the dependencies](http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies).
+Start by [installing composer](http://getcomposer.org/doc/01-basic-usage.md#installation). Then, install this library:
+
+    $ php composer.phar require "wb/bigregister-soap"
 
 ## Requirements
 PHP >=5.3.0 and ext-soap
 
 ## Usage
+Most users will be satisfied by using the <code>Service</code> class provided. The service class parses the response
+into php arrays and transforms all ids into readable values.
+
+### Perform a search with the service
+
+```php
+<?php
+// Will return only one or none result
+$service = new Wb\BigRegister\SoapClient\Service();
+print_r($service->findByRegistrationNumber('19023424101'));
+
+```
+
+### Search by name and city
+
+```php
+<?php
+// Will return only one or none result
+$service = new Wb\BigRegister\SoapClient\Service();
+print_r($service->findByLastnameAndCity('Janssen', 'Amsterdam'));
+
+```
+
+## Usage of the Client
+For power users who just want to use the raw unaltered response we offer the possibility to use the <code>Client</code>.
 Creating a new instance is as simple as:
 
 ```php
@@ -23,7 +49,7 @@ $client = new \Wb\BigRegister\SoapClient\Client();
 
 ```
 
-### Perform a search
+### Perform a search with the client
 Search on a number:
 
 ```php
