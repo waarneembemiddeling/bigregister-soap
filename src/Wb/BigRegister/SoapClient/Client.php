@@ -55,14 +55,14 @@ class Client extends BaseSoapClient
         parent::__construct($wsdl, $options);
     }
 
-    public function __doRequest($request, $location, $action, $version)
+    public function __doRequest($request, $location, $action, $version, $one_way = 0 )
     {
         $id = md5($request . $location . $action . $version);
         if ($this->cache && $this->cache->contains($id)) {
             return $this->cache->fetch($id);
         }
 
-        $response = parent::__doRequest($request, $location, $action, $version);
+        $response = parent::__doRequest($request, $location, $action, $version, $one_way);
         if ($this->cache) {
             $this->cache->save($id, $response);
         }
