@@ -8,11 +8,16 @@
 
 namespace Wb\BigRegister\SoapClient;
 
+use Doctrine\Common\Cache\Cache;
 use SoapClient as BaseSoapClient;
 
 class Client extends BaseSoapClient
 {
-    public function __construct($wsdl = null, array $userOptions = array())
+    private $cache;
+
+    private $cacheTtl;
+
+    public function __construct($wsdl = null, array $userOptions = array(), Cache $cache = null, $cacheTtl = 0)
     {
         $wsdl = $wsdl ? $wsdl : 'http://webservices.cibg.nl/Ribiz/OpenbaarV2.asmx?WSDL';
         $namespace = 'Wb\\BigRegister\\SoapClient\\Model\\';
@@ -43,8 +48,25 @@ class Client extends BaseSoapClient
                 'TypeOfSpecialism'                          => $namespace . 'TypeOfSpecialism'
             ),
         );
-        $options = array_merge($options, $userOptions);
+        $options        = array_merge($options, $userOptions);
+        $this->cache    = $cache;
+        $this->cacheTtl = (int) $cacheTtl;
 
         parent::__construct($wsdl, $options);
+    }
+
+    public function __doRequest($request, $location, $action, $version)
+    {
+        $id = md5($request . $location . $action . $version);
+        if ($this->cache && $this->cache->contains($id)) {
+            return $this->cache->fetch($id);
+        }
+
+        $response = parent::__doRequest($request, $location, $action, $version);
+        if ($this->cache) {
+            $this->cache->save($id, $response);
+        }
+
+        return $response;
     }
 }
