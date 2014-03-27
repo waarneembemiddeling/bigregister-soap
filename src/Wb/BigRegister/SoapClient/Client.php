@@ -23,6 +23,7 @@ class Client extends BaseSoapClient
         $namespace = 'Wb\\BigRegister\\SoapClient\\Model\\';
         $options = array(
             'features'       => SOAP_SINGLE_ELEMENT_ARRAYS,
+            'cache_wsdl'     => WSDL_CACHE_BOTH,
             'classmap'       => array(
                 'ListHcpApproxRequest'                      => $namespace . 'ListHcpApproxRequest',
                 'ListHcpApproxResponse3'                    => $namespace . 'ListHcpApproxResponse3',
