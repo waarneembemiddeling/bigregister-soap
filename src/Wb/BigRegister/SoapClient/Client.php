@@ -10,6 +10,7 @@ namespace Wb\BigRegister\SoapClient;
 
 use Doctrine\Common\Cache\Cache;
 use SoapClient as BaseSoapClient;
+use Wb\BigRegister\SoapClient\Exception\ConnectionException;
 
 class Client extends BaseSoapClient
 {
@@ -17,7 +18,7 @@ class Client extends BaseSoapClient
 
     private $cacheTtl;
 
-    public function __construct($wsdl = null, array $userOptions = array(), Cache $cache = null, $cacheTtl = 0)
+    public function __construct($wsdl = null, array $userOptions = array(), Cache $cache = null, $cacheTtl = 0, $disableErrorsInConstructor = false)
     {
         $wsdl = $wsdl ? $wsdl : 'http://webservices.cibg.nl/Ribiz/OpenbaarV2.asmx?WSDL';
         $namespace = 'Wb\\BigRegister\\SoapClient\\Model\\';
@@ -53,7 +54,28 @@ class Client extends BaseSoapClient
         $this->cache    = $cache;
         $this->cacheTtl = (int) $cacheTtl;
 
-        parent::__construct($wsdl, $options);
+        // Disable exceptions and warnings in __construct. When using this client via a service container like the
+        // Symfony2 one, instantiating the client results in a non catchable fatal when WSDL is down. With this
+        // parameter you can disable it, so you can try catch the call itself.
+        // Be warned you should catch SoapFault exceptions when calling the webservice.
+        if ($disableErrorsInConstructor) {
+            // Disable error handler for now
+            $previous = set_error_handler(function() {}, E_ALL);
+            try {
+                parent::SoapClient($wsdl, $options);
+            } catch (\SoapFault $e) {}
+            // Restore previous error handler
+            set_error_handler($previous);
+        }
+    }
+
+    public function __call($method, $arguments)
+    {
+        try {
+            return parent::__call($method, $arguments);
+        } catch (\SoapFault $e) {
+            throw new ConnectionException("Problem with connecting BIG Register", 0, $e);
+        }
     }
 
     public function __doRequest($request, $location, $action, $version, $one_way = 0 )
@@ -64,6 +86,7 @@ class Client extends BaseSoapClient
         }
 
         $response = parent::__doRequest($request, $location, $action, $version, $one_way);
+
         if ($this->cache) {
             $this->cache->save($id, $response);
         }
