@@ -1,6 +1,6 @@
 {
-    "name": "wb/bigregister-soap",
-    "description": "php 5.3+ implementation of BIG Register SOAP interface",
+    "name": "waarneembemiddeling/bigregister-soap",
+    "description": "php 5.3+ implementation of the Dutch BIG Register SOAP interface",
     "keywords": ["BIG register", "BIG-register", "BIG-nummer", "bigregister.nl"],
     "license": "MIT",
     "authors": [
