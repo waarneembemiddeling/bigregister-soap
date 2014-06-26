@@ -9,6 +9,7 @@
 namespace Wb\Test\BigRegister\SoapClient;
 
 
+use Wb\BigRegister\SoapClient\Client;
 use Wb\BigRegister\SoapClient\Model\ListHcpApproxRequest;
 use Wb\Test\SoapClientTestCase;
 
@@ -16,9 +17,10 @@ class ClientTest extends SoapClientTestCase
 {
     public function testNumberSearch()
     {
-        $client = $this->getMockSoapClient('search_number');
         $request = new ListHcpApproxRequest();
-        $request->RegistrationNumber = '12345678902';
+        $request->RegistrationNumber = '123456789';
+
+        $client = $this->getMockSoapClient();
         $response = $client->ListHcpApprox3($request);
 
         $this->assertInstanceOf('Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3', $response);
@@ -34,6 +36,6 @@ class ClientTest extends SoapClientTestCase
             'Wb\BigRegister\SoapClient\Model\ArticleRegistrationExtApp',
             $article->ArticleRegistrationExtApp[0]
         );
-        $this->assertSame('12345678902', $article->ArticleRegistrationExtApp[0]->ArticleRegistrationNumber);
+        $this->assertSame('123456789', $article->ArticleRegistrationExtApp[0]->ArticleRegistrationNumber);
     }
 } 

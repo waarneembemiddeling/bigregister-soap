@@ -66,6 +66,8 @@ class Client extends BaseSoapClient
             } catch (\SoapFault $e) {}
             // Restore previous error handler
             set_error_handler($previous);
+        } else {
+            parent::SoapClient($wsdl, $options);
         }
     }
 

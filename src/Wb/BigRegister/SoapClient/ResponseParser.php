@@ -18,10 +18,8 @@ class ResponseParser
         if (isset($response->ListHcpApprox->ListHcpApprox3)) {
             foreach ($response->ListHcpApprox->ListHcpApprox3 as $hcpResult) {
                 $return = array();
-                $return['name'] = implode(' ', array(
-                    $hcpResult->Initial,
-                    $hcpResult->BirthSurname
-                ));
+                $return['name'] = $hcpResult->MailingName;
+                $return['prefix'] = $hcpResult->Prefix;
                 $return['initial'] = $hcpResult->Initial;
                 $return['birthSurname'] = $hcpResult->BirthSurname;
                 $return['gender'] = $hcpResult->Gender === 'M' ? 'Man' : 'Vrouw';
