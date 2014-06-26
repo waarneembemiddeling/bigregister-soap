@@ -15,12 +15,11 @@ class ResponseParserTest extends SoapClientTestCase
 {
     public function testParse()
     {
-        $client = $this->getMockSoapClient('search_number');
+        $client = $this->getMockSoapClient();
         $response = $client->ListHcpApprox3();
 
         $parser = new ResponseParser();
         $result = $parser->parse($response);
-
         $this->assertInternalType('array', $result);
         $this->assertCount(1, $result);
         $this->assertArrayHasKey(0, $result);
@@ -30,5 +29,12 @@ class ResponseParserTest extends SoapClientTestCase
         $this->assertArrayHasKey('mentions', $result);
         $this->assertArrayHasKey('judgements', $result);
         $this->assertArrayHasKey('limitations', $result);
+
+        $this->assertSame('J.J. van der Jansen', $result['name']);
+        $this->assertSame('van der', $result['prefix']);
+        $this->assertSame('Vrouw', $result['gender']);
+        $this->assertSame('huisartsgeneeskunde', $result['specialisms'][0]['name']);
+        $this->assertSame('medische zorg voor verstandelijke gehandicapten', $result['specialisms'][1]['name']);
+
     }
 } 

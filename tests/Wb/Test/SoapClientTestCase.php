@@ -8,25 +8,127 @@
 
 namespace Wb\Test;
 
-use \InvalidArgumentException;
+use Wb\BigRegister\SoapClient\Model\ArrayOfArticleRegistrationExtApp;
+use Wb\BigRegister\SoapClient\Model\ArrayOfJudgmentProvisionExtApp;
+use Wb\BigRegister\SoapClient\Model\ArrayOfLimitationExtApp;
+use Wb\BigRegister\SoapClient\Model\ArrayOfListHcpApprox3;
+use Wb\BigRegister\SoapClient\Model\ArrayOfMentionExtApp;
+use Wb\BigRegister\SoapClient\Model\ArrayOfSpecialismExtApp;
+use Wb\BigRegister\SoapClient\Model\ArticleRegistrationExtApp;
+use Wb\BigRegister\SoapClient\Model\ListHcpApprox3;
+use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3;
+use Wb\BigRegister\SoapClient\Model\SpecialismExtApp;
 
 class SoapClientTestCase extends \PHPUnit_Framework_TestCase
 {
-    public function getMockSoapClient($search)
+    public function getMockSoapClient()
     {
-        $mockPath = __DIR__ .'/../../mock';
-        $mockFile = sprintf('%s/%s.xml', $mockPath, $search);
-        if (is_file($mockFile) && is_readable($mockFile)) {
-            $stub = $this->getMock('Wb\BigRegister\SoapClient\Client', array(
-                '__doRequest'
-            ));
-            $stub->expects($this->any())
-                ->method('__doRequest')
-                ->will($this->returnValue(file_get_contents($mockFile)));
+        $bigSoapClient = $this->getMockFromWsdl(
+            __DIR__.'/../../../resources/bigregister.wsdl',
+            'Wb\BigRegister\SoapClient\Client',
+            '',
+            array(
+                'ListHcpApprox3'
+            )
+        );
 
-            return $stub;
+        $data = array(
+            'hcp'           => '1234',
+            'birthSurname'  => 'Jansen',
+            'mailingName'   => 'J.J. van der Jansen',
+            'initial'       => 'J.J.',
+            'prefix'        => 'van der',
+            'gender'        => 'V',
+            'number'        => '123456789',
+            'start'         => '2009-02-06T00:00:00',
+            'end'           => '0001-01-01T00:00:00',
+            'groupCode'     => '01',
+            'specialisms'   => array(
+                array(
+                    'specialismId'      => '17795',
+                    'start'             => '1998-12-10T00:00:00',
+                    'end'               => null,
+                    'typeOfSpecialismId'=> '15',
+                    'number'            => '123456789',
+                ),
+                array(
+                    'specialismId'      => '29656',
+                    'start'             => '2001-02-16T00:00:00',
+                    'end'               => null,
+                    'typeOfSpecialismId'=> '56',
+                    'number'            => '123456789',
+                )
+            )
+        );
+
+        $resp = $this->createResponse($data);
+        $bigSoapClient->expects($this->any())
+            ->method('ListHcpApprox3')
+            ->will($this->returnValue($resp));
+
+        return $bigSoapClient;
+    }
+
+    private function createResponse(array $data)
+    {
+        $resp = $this->createListHcpApprox3(
+            $data['hcp'], $data['birthSurname'], $data['mailingName'], $data['initial'], $data['prefix'], $data['gender']
+        );
+        $resp->ArticleRegistration = new ArrayOfArticleRegistrationExtApp();
+        $resp->ArticleRegistration->ArticleRegistrationExtApp[] = $this->createArticleRegistration(
+            $data['number'], $data['start'], $data['end'], $data['groupCode']
+        );
+        $resp->Specialism = new ArrayOfSpecialismExtApp();
+        foreach ($data['specialisms'] as $specialism) {
+            $resp->Specialism->SpecialismExtApp[] = $this->createSpecialismExtApp(
+                $specialism['specialismId'], $specialism['number'], $specialism['start'], $specialism['end'], $specialism['typeOfSpecialismId']
+            );
         }
+        $resp->Mention = new ArrayOfMentionExtApp();
+        $resp->JudgmentProvision = new ArrayOfJudgmentProvisionExtApp();
+        $resp->Limitation = new ArrayOfLimitationExtApp();
 
-        throw new InvalidArgumentException(sprintf('Mock "%s" could not be found', $mockFile));
+        $return = new ListHcpApproxResponse3();
+        $return->ListHcpApprox = new ArrayOfListHcpApprox3();
+        $return->ListHcpApprox->ListHcpApprox3 = array(
+            $resp
+        );
+        return $return;
+    }
+
+    private function createSpecialismExtApp($specialismId, $number, $start, $end, $typeOfSpecialismId)
+    {
+        $r = new SpecialismExtApp();
+        $r->SpecialismId = $specialismId;
+        $r->ArticleRegistrationNumber = $number;
+        $r->StartDate = $start;
+        $r->EndDate = $end;
+        $r->TypeOfSpecialismId = $typeOfSpecialismId;
+
+        return $r;
+    }
+
+    private function createArticleRegistration($number, $start, $end, $groupCode)
+    {
+        $a = new ArticleRegistrationExtApp();
+        $a->ArticleRegistrationNumber = $number;
+        $a->ArticleRegistrationStartDate = $start;
+        $a->ArticleRegistrationEndDate = $end;
+        $a->ProfessionalGroupCode = $groupCode;
+
+        return $a;
+    }
+
+    private function createListHcpApprox3($hcp, $birthSurname, $mailingName, $initial, $prefix, $gender)
+    {
+        $r = new ListHcpApprox3();
+        $r->HcpNumber = $hcp;
+        $r->BirthSurname = $birthSurname;
+        $r->MailingName = $mailingName;
+        $r->Initial = $initial;
+        $r->Prefix = $prefix;
+        $r->Gender = $gender;
+
+        return $r;
     }
 } 
