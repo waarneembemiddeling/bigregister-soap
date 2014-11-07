@@ -9,7 +9,7 @@ A mapping of all the Soap types is provided.
 ## Installation
 Start by [installing composer](http://getcomposer.org/doc/01-basic-usage.md#installation). Then, install this library:
 
-    $ php composer.phar require "wb/bigregister-soap"
+    $ php composer.phar require "waarneembemiddeling/bigregister-soap"
 
 ## Requirements
 PHP >=5.3.0 and ext-soap
