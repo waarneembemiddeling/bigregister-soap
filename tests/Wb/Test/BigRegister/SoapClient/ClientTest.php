@@ -21,7 +21,7 @@ class ClientTest extends SoapClientTestCase
         $request->RegistrationNumber = '123456789';
 
         $client = $this->getMockSoapClient();
-        $response = $client->ListHcpApprox3($request);
+        $response = $client->ListHcpApprox4($request);
 
         $this->assertInstanceOf('Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3', $response);
         $this->assertInternalType('array', $response->ListHcpApprox->ListHcpApprox3);
