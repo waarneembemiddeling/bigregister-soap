@@ -37,7 +37,7 @@ class Client extends BaseSoapClient
                 'ArrayOfListHcpApprox'                      => $namespace . 'ArrayOfListHcpApprox',
                 'ArrayOfRegistrationProvisionNoteExtApp'    => $namespace . 'ArrayOfRegistrationProvisionNoteExtApp',
                 'RegistrationProvisionNoteExtApp'           => $namespace . 'RegistrationProvisionNoteExtApp',
-                'ArrayOfListHcpApprox3'                     => $namespace . 'ArrayOfListHcpApprox3',
+                'ArrayOfListHcpApprox4'                     => $namespace . 'ArrayOfListHcpApprox4',
                 'ArrayOfMentionExtApp'                      => $namespace . 'ArrayOfMentionExtApp',
                 'MentionExtApp'                             => $namespace . 'MentionExtApp',
                 'ArrayOfJudgmentProvisionExtApp'            => $namespace . 'ArrayOfJudgmentProvisionExtApp',

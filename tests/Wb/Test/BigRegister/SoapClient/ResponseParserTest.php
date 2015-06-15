@@ -16,7 +16,7 @@ class ResponseParserTest extends SoapClientTestCase
     public function testParse()
     {
         $client = $this->getMockSoapClient();
-        $response = $client->ListHcpApprox3();
+        $response = $client->ListHcpApprox4();
 
         $parser = new ResponseParser();
         $result = $parser->parse($response);

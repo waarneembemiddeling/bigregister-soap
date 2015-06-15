@@ -58,7 +58,7 @@ Search on a number:
 $client = new \Wb\BigRegister\SoapClient\Client();
 $request = new \Wb\BigRegister\SoapClient\Model\ListHcpApproxRequest();
 $request->RegistrationNumber = '123';
-$response = $client->ListHcpApprox3($request);
+$response = $client->ListHcpApprox4($request);
 
 // dump the response
 print_r($response);
