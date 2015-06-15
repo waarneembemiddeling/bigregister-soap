@@ -3,7 +3,7 @@
 namespace Wb\BigRegister\SoapClient;
 
 use Wb\BigRegister\SoapClient\Model\ListHcpApproxRequest;
-use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3;
+use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse4;
 
 class Service
 {
@@ -39,12 +39,12 @@ class Service
 
     protected function doRequest(ListHcpApproxRequest $request)
     {
-        $response = $this->client->ListHcpApprox3($request);
+        $response = $this->client->ListHcpApprox4($request);
 
         return $this->parseResponse($response);
     }
 
-    protected function parseResponse(ListHcpApproxResponse3 $response)
+    protected function parseResponse(ListHcpApproxResponse4 $response)
     {
         $parser = new ResponseParser();
 

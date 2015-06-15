@@ -8,15 +8,15 @@
 
 namespace Wb\BigRegister\SoapClient;
 
-use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3;
+use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse4;
 
 class ResponseParser
 {
-    public function parse(ListHcpApproxResponse3 $response)
+    public function parse(ListHcpApproxResponse4 $response)
     {
         $ret = array();
-        if (isset($response->ListHcpApprox->ListHcpApprox3)) {
-            foreach ($response->ListHcpApprox->ListHcpApprox3 as $hcpResult) {
+        if (isset($response->ListHcpApprox->ListHcpApprox4)) {
+            foreach ($response->ListHcpApprox->ListHcpApprox4 as $hcpResult) {
                 $return = array();
                 $return['name'] = $hcpResult->MailingName;
                 $return['prefix'] = $hcpResult->Prefix;

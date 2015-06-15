@@ -20,16 +20,16 @@ class Client extends BaseSoapClient
 
     public function __construct($wsdl = null, array $userOptions = array(), Cache $cache = null, $cacheTtl = 0, $disableErrorsInConstructor = false)
     {
-        $wsdl = $wsdl ? $wsdl : 'http://webservices.cibg.nl/Ribiz/OpenbaarV2.asmx?WSDL';
+        $wsdl = $wsdl ? $wsdl : 'http://webservices.cibg.nl/Ribiz/OpenbaarV4.asmx?wsdl';
         $namespace = 'Wb\\BigRegister\\SoapClient\\Model\\';
         $options = array(
             'features'       => SOAP_SINGLE_ELEMENT_ARRAYS,
             'cache_wsdl'     => WSDL_CACHE_BOTH,
             'classmap'       => array(
                 'ListHcpApproxRequest'                      => $namespace . 'ListHcpApproxRequest',
-                'ListHcpApproxResponse3'                    => $namespace . 'ListHcpApproxResponse3',
+                'ListHcpApproxResponse4'                    => $namespace . 'ListHcpApproxResponse4',
                 'Address'                                   => $namespace . 'Address',
-                'ListHcpApprox3'                            => $namespace . 'ListHcpApprox3',
+                'ListHcpApprox4'                            => $namespace . 'ListHcpApprox4',
                 'ArticleRegistrationExtApp'                 => $namespace . 'ArticleRegistrationExtApp',
                 'ArrayOfArticleRegistrationExtApp'          => $namespace . 'ArrayOfArticleRegistrationExtApp',
                 'SpecialismExtApp'                          => $namespace . 'SpecialismExtApp',
@@ -37,7 +37,7 @@ class Client extends BaseSoapClient
                 'ArrayOfListHcpApprox'                      => $namespace . 'ArrayOfListHcpApprox',
                 'ArrayOfRegistrationProvisionNoteExtApp'    => $namespace . 'ArrayOfRegistrationProvisionNoteExtApp',
                 'RegistrationProvisionNoteExtApp'           => $namespace . 'RegistrationProvisionNoteExtApp',
-                'ArrayOfListHcpApprox3'                     => $namespace . 'ArrayOfListHcpApprox3',
+                'ArrayOfListHcpApprox4'                     => $namespace . 'ArrayOfListHcpApprox4',
                 'ArrayOfMentionExtApp'                      => $namespace . 'ArrayOfMentionExtApp',
                 'MentionExtApp'                             => $namespace . 'MentionExtApp',
                 'ArrayOfJudgmentProvisionExtApp'            => $namespace . 'ArrayOfJudgmentProvisionExtApp',

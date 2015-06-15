@@ -21,16 +21,16 @@ class ClientTest extends SoapClientTestCase
         $request->RegistrationNumber = '123456789';
 
         $client = $this->getMockSoapClient();
-        $response = $client->ListHcpApprox3($request);
+        $response = $client->ListHcpApprox4($request);
 
-        $this->assertInstanceOf('Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3', $response);
-        $this->assertInternalType('array', $response->ListHcpApprox->ListHcpApprox3);
-        $this->assertCount(1, $response->ListHcpApprox->ListHcpApprox3);
+        $this->assertInstanceOf('Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse4', $response);
+        $this->assertInternalType('array', $response->ListHcpApprox->ListHcpApprox4);
+        $this->assertCount(1, $response->ListHcpApprox->ListHcpApprox4);
         $this->assertInstanceOf(
             'Wb\BigRegister\SoapClient\Model\ArrayOfArticleRegistrationExtApp',
-            $response->ListHcpApprox->ListHcpApprox3[0]->ArticleRegistration
+            $response->ListHcpApprox->ListHcpApprox4[0]->ArticleRegistration
         );
-        $article = $response->ListHcpApprox->ListHcpApprox3[0]->ArticleRegistration;
+        $article = $response->ListHcpApprox->ListHcpApprox4[0]->ArticleRegistration;
         $this->assertInternalType('array', $article->ArticleRegistrationExtApp);
         $this->assertInstanceOf(
             'Wb\BigRegister\SoapClient\Model\ArticleRegistrationExtApp',

@@ -8,7 +8,7 @@
 
 namespace Wb\BigRegister\SoapClient\Model;
 
-class ListHcpApproxResponse3
+class ArrayOfListHcpApprox4
 {
-    public $ListHcpApprox;
+    public $ListHcpApprox4;
 } 

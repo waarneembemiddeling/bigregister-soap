@@ -11,12 +11,12 @@ namespace Wb\Test;
 use Wb\BigRegister\SoapClient\Model\ArrayOfArticleRegistrationExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfJudgmentProvisionExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfLimitationExtApp;
-use Wb\BigRegister\SoapClient\Model\ArrayOfListHcpApprox3;
+use Wb\BigRegister\SoapClient\Model\ArrayOfListHcpApprox4;
 use Wb\BigRegister\SoapClient\Model\ArrayOfMentionExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfSpecialismExtApp;
 use Wb\BigRegister\SoapClient\Model\ArticleRegistrationExtApp;
-use Wb\BigRegister\SoapClient\Model\ListHcpApprox3;
-use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse3;
+use Wb\BigRegister\SoapClient\Model\ListHcpApprox4;
+use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse4;
 use Wb\BigRegister\SoapClient\Model\SpecialismExtApp;
 
 class SoapClientTestCase extends \PHPUnit_Framework_TestCase
@@ -28,7 +28,7 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
             'Wb\BigRegister\SoapClient\Client',
             '',
             array(
-                'ListHcpApprox3'
+                'ListHcpApprox4'
             )
         );
 
@@ -63,7 +63,7 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
 
         $resp = $this->createResponse($data);
         $bigSoapClient->expects($this->any())
-            ->method('ListHcpApprox3')
+            ->method('ListHcpApprox4')
             ->will($this->returnValue($resp));
 
         return $bigSoapClient;
@@ -71,7 +71,7 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
 
     private function createResponse(array $data)
     {
-        $resp = $this->createListHcpApprox3(
+        $resp = $this->createListHcpApprox4(
             $data['hcp'], $data['birthSurname'], $data['mailingName'], $data['initial'], $data['prefix'], $data['gender']
         );
         $resp->ArticleRegistration = new ArrayOfArticleRegistrationExtApp();
@@ -88,9 +88,9 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
         $resp->JudgmentProvision = new ArrayOfJudgmentProvisionExtApp();
         $resp->Limitation = new ArrayOfLimitationExtApp();
 
-        $return = new ListHcpApproxResponse3();
-        $return->ListHcpApprox = new ArrayOfListHcpApprox3();
-        $return->ListHcpApprox->ListHcpApprox3 = array(
+        $return = new ListHcpApproxResponse4();
+        $return->ListHcpApprox = new ArrayOfListHcpApprox4();
+        $return->ListHcpApprox->ListHcpApprox4 = array(
             $resp
         );
         return $return;
@@ -119,9 +119,9 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
         return $a;
     }
 
-    private function createListHcpApprox3($hcp, $birthSurname, $mailingName, $initial, $prefix, $gender)
+    private function createListHcpApprox4($hcp, $birthSurname, $mailingName, $initial, $prefix, $gender)
     {
-        $r = new ListHcpApprox3();
+        $r = new ListHcpApprox4();
         $r->HcpNumber = $hcp;
         $r->BirthSurname = $birthSurname;
         $r->MailingName = $mailingName;

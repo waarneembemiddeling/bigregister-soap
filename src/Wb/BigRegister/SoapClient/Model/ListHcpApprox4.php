@@ -8,7 +8,7 @@
 
 namespace Wb\BigRegister\SoapClient\Model;
 
-class ListHcpApprox3
+class ListHcpApprox4
 {
     public $HcpNumber;
     public $BirthSurname;
