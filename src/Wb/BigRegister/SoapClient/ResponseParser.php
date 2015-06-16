@@ -43,8 +43,8 @@ class ResponseParser
                     }
                 }
 
-                if (isset($hcpResult->Specialism->SpecialismExtApp)) {
-                    foreach ($hcpResult->Specialism->SpecialismExtApp as $row) {
+                if (isset($hcpResult->Specialism->SpecialismExtApp1)) {
+                    foreach ($hcpResult->Specialism->SpecialismExtApp1 as $row) {
                         $specialism = array();
                         $specialism['bigNumber'] = $row->ArticleRegistrationNumber;
                         $specialism['start'] = new \DateTime($row->StartDate);

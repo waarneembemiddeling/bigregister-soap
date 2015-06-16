@@ -31,8 +31,7 @@
                             <ArticleNumber>12345678910</ArticleNumber>
                             <Id>641</Id>
                             <StartDate>2015-03-31T10:50:23</StartDate>
-                            <PublicDescription>Hello world
-                            </PublicDescription>
+                            <PublicDescription>Hello world</PublicDescription>
                             <EndDate>2020-03-30T11:33:35</EndDate>
                             <Public>true</Public>
                         </JudgmentProvisionExtApp>
