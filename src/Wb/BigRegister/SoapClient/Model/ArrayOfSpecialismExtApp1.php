@@ -8,7 +8,7 @@
 
 namespace Wb\BigRegister\SoapClient\Model;
 
-class ArrayOfSpecialismExtApp
+class ArrayOfSpecialismExtApp1
 {
-    public $SpecialismExtApp;
+    public $SpecialismExtApp1;
 } 

@@ -8,16 +8,17 @@
 
 namespace Wb\Test;
 
+use Wb\BigRegister\SoapClient\Client;
 use Wb\BigRegister\SoapClient\Model\ArrayOfArticleRegistrationExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfJudgmentProvisionExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfLimitationExtApp;
 use Wb\BigRegister\SoapClient\Model\ArrayOfListHcpApprox4;
 use Wb\BigRegister\SoapClient\Model\ArrayOfMentionExtApp;
-use Wb\BigRegister\SoapClient\Model\ArrayOfSpecialismExtApp;
+use Wb\BigRegister\SoapClient\Model\ArrayOfSpecialismExtApp1;
 use Wb\BigRegister\SoapClient\Model\ArticleRegistrationExtApp;
 use Wb\BigRegister\SoapClient\Model\ListHcpApprox4;
 use Wb\BigRegister\SoapClient\Model\ListHcpApproxResponse4;
-use Wb\BigRegister\SoapClient\Model\SpecialismExtApp;
+use Wb\BigRegister\SoapClient\Model\SpecialismExtApp1;
 
 class SoapClientTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -93,7 +94,7 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
         $resp->ArticleRegistration->ArticleRegistrationExtApp[] = $this->createArticleRegistration(
             $data['number'], $data['start'], $data['end'], $data['groupCode']
         );
-        $resp->Specialism = new ArrayOfSpecialismExtApp();
+        $resp->Specialism = new ArrayOfSpecialismExtApp1();
         foreach ($data['specialisms'] as $specialism) {
             $resp->Specialism->SpecialismExtApp[] = $this->createSpecialismExtApp(
                 $specialism['specialismId'], $specialism['number'], $specialism['start'], $specialism['end'], $specialism['typeOfSpecialismId']
@@ -113,7 +114,7 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
 
     private function createSpecialismExtApp($specialismId, $number, $start, $end, $typeOfSpecialismId)
     {
-        $r = new SpecialismExtApp();
+        $r = new SpecialismExtApp1();
         $r->SpecialismId = $specialismId;
         $r->ArticleRegistrationNumber = $number;
         $r->StartDate = $start;

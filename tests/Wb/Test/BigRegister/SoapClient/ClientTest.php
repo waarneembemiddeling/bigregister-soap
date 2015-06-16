@@ -8,8 +8,6 @@
 
 namespace Wb\Test\BigRegister\SoapClient;
 
-
-use Wb\BigRegister\SoapClient\Client;
 use Wb\BigRegister\SoapClient\Model\ListHcpApproxRequest;
 use Wb\Test\SoapClientTestCase;
 
