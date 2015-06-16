@@ -8,7 +8,7 @@
 
 namespace Wb\BigRegister\SoapClient\Model;
 
-class SpecialismExtApp
+class SpecialismExtApp1
 {
     public $SpecialismId;
     public $ArticleRegistrationNumber;
