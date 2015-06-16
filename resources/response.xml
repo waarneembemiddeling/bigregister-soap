@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ListHcpApprox4Result xmlns="http://services.cibg.nl/ExternalUser">
+            <ListHcpApprox>
+                <ListHcpApprox4>
+                    <BirthSurname>Bar</BirthSurname>
+                    <MailingName>Foo van Bar</MailingName>
+                    <Prefix>van</Prefix>
+                    <Initial>Foo</Initial>
+                    <Gender>M</Gender>
+                    <ArticleRegistration>
+                        <ArticleRegistrationExtApp>
+                            <ArticleRegistrationNumber>12345678910</ArticleRegistrationNumber>
+                            <ArticleRegistrationStartDate>1998-02-06T00:00:00</ArticleRegistrationStartDate>
+                            <ArticleRegistrationEndDate>0001-01-01T00:00:00</ArticleRegistrationEndDate>
+                            <ProfessionalGroupCode>01</ProfessionalGroupCode>
+                        </ArticleRegistrationExtApp>
+                    </ArticleRegistration>
+                    <Specialism>
+                        <SpecialismExtApp1>
+                            <SpecialismId>733</SpecialismId>
+                            <ArticleRegistrationNumber>12345678910</ArticleRegistrationNumber>
+                            <TypeOfSpecialismId>15</TypeOfSpecialismId>
+                        </SpecialismExtApp1>
+                    </Specialism>
+                    <Mention/>
+                    <JudgmentProvision>
+                        <JudgmentProvisionExtApp>
+                            <ArticleNumber>12345678910</ArticleNumber>
+                            <Id>641</Id>
+                            <StartDate>2015-03-31T10:50:23</StartDate>
+                            <PublicDescription>Hello world
+                            </PublicDescription>
+                            <EndDate>2020-03-30T11:33:35</EndDate>
+                            <Public>true</Public>
+                        </JudgmentProvisionExtApp>
+                    </JudgmentProvision>
+                    <Limitation/>
+                </ListHcpApprox4>
+            </ListHcpApprox>
+        </ListHcpApprox4Result>
+    </soap:Body>
+</soap:Envelope>

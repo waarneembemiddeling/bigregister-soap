@@ -69,6 +69,21 @@ class SoapClientTestCase extends \PHPUnit_Framework_TestCase
         return $bigSoapClient;
     }
 
+    public function getMappingSoapClient()
+    {
+        $client = $this->getMock(
+            'Wb\BigRegister\SoapClient\Client',
+            array('__doRequest'),
+            array(__DIR__.'/../../../resources/bigregister.wsdl')
+        );
+
+        $client->expects($this->any())
+            ->method('__doRequest')
+            ->will($this->returnValue(file_get_contents(__DIR__.'/../../../resources/response.xml')));
+
+        return $client;
+    }
+
     private function createResponse(array $data)
     {
         $resp = $this->createListHcpApprox4(
