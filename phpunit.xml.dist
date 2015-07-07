@@ -2,7 +2,7 @@
 
 <phpunit bootstrap="tests/bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="php-discogs-api Test Suite">
+        <testsuite name="bigregister-soap Test Suite">
             <directory>tests/Wb/</directory>
         </testsuite>
     </testsuites>
