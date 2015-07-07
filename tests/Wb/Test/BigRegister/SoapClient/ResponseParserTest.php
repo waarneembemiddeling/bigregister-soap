@@ -50,8 +50,7 @@ class ResponseParserTest extends SoapClientTestCase
         $this->assertCount(1, $result['specialisms']);
         $this->assertSame('huisartsgeneeskunde', $result['specialisms'][0]['name']);
         $this->assertSame('12345678910', $result['specialisms'][0]['bigNumber']);
-        $this->assertInstanceOf('DateTime', $result['specialisms'][0]['start']);
-        $this->assertSame('2015-06-16', $result['specialisms'][0]['start']->format('Y-m-d'));
+        $this->assertNull($result['specialisms'][0]['start']);
         $this->assertNull($result['specialisms'][0]['end']);
 
         // Mentions

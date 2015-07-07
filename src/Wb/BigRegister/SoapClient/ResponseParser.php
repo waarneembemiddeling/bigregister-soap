@@ -47,7 +47,10 @@ class ResponseParser
                     foreach ($hcpResult->Specialism->SpecialismExtApp1 as $row) {
                         $specialism = array();
                         $specialism['bigNumber'] = $row->ArticleRegistrationNumber;
-                        $specialism['start'] = new \DateTime($row->StartDate);
+                        $specialism['start'] = null;
+                        if ($row->StartDate) {
+                            $specialism['start'] = new \DateTime($row->StartDate);
+                        }
                         $specialism['end'] = null;
                         if ($row->EndDate) {
                             $specialism['end'] = new \DateTime($row->EndDate);
