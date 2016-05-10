@@ -192,6 +192,16 @@ class ResponseParser
             60 => 'ziekenhuisfarmacie',
             61 => 'klinische psychologie',
             62 => 'interne geneeskunde-allergologie',
+            63 => 'klinische neuropsychologie',
+            65 => 'verpl. spec. prev. zorg bij som. aandoeningen',
+            66 => 'verpl. spec. acute zorg bij som. aandoeningen',
+            67 => 'verpl. spec. intensieve zorg bij som. aandoeningen',
+            68 => 'verpl. spec. chronische zorg bij som. aandoeningen',
+            69 => 'verpl. spec. geestelijke gezondheidszorg',
+            70 => 'jeugdgezondheidszorg',
+            71 => 'spoedeisendehulp',
+            74 => 'sportgeneeskunde',
+            75 => 'openbaar apotheker'
         );
         if (isset($list[$code])) {
             return $list[$code];
