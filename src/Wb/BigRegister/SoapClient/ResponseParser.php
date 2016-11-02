@@ -136,6 +136,7 @@ class ResponseParser
             '85' => 'Tandprothetica',
             '86' => 'Verzorgenden individuele gezondheidszorg'
         );
+
         if (isset($list[$code])) {
             return $list[$code];
         }
@@ -144,65 +145,61 @@ class ResponseParser
     protected function getSpecialism($code)
     {
         $list = array(
-            2 => 'allergologie',
-            3 => 'anesthesiologie',
-            4 => 'algemene gezondheidszorg',
-            5 => 'medische milieukunde',
-            6 => 'tuberculosebestrijding',
-            7 => 'arbeid en gezondheid',
-            8 => 'arbeid en gezondheid - bedrijfsgeneeskunde',
-            10 => 'cardiologie',
-            11 => 'cardio-thoracale chirurgie',
-            12 => 'dermatologie en venerologie',
-            13 => 'leer van maag-darm-leverziekten',
-            14 => 'heelkunde',
-            15 => 'huisartsgeneeskunde',
-            16 => 'inwendige geneeskunde',
-            17 => 'jeugdgezondheidszorg',
-            18 => 'keel- neus- oorheelkunde',
-            19 => 'kindergeneeskunde',
-            20 => 'klinische chemie',
-            21 => 'klinische genetica',
-            22 => 'klinische geriatrie',
-            23 => 'longziekten en tuberculose',
-            24 => 'medische microbiologie',
-            25 => 'neurochirurgie',
-            26 => 'neurologie',
-            30 => 'nucleaire geneeskunde',
-            31 => 'oogheelkunde',
-            32 => 'orthopedie',
-            33 => 'pathologie',
-            34 => 'plastische chirurgie',
-            35 => 'psychiatrie',
-            39 => 'radiologie',
-            40 => 'radiotherapie',
-            41 => 'reumatologie',
-            42 => 'revalidatiegeneeskunde',
-            43 => 'maatschappij en gezondheid',
-            44 => 'sportgeneeskunde',
-            45 => 'urologie',
-            46 => 'obstetrie en gynaecologie',
-            47 => 'verpleeghuisgeneeskunde',
-            48 => 'arbeid en gezondheid - verzekeringsgeneeskunde',
-            50 => 'zenuw- en zielsziekten',
-            53 => 'dento-maxillaire orthopaedie',
-            54 => 'mondziekten en kaakchirurgie',
-            55 => 'maatschappij en gezondheid',
-            56 => 'medische zorg voor verstandelijke gehandicapten',
-            60 => 'ziekenhuisfarmacie',
-            61 => 'klinische psychologie',
-            62 => 'interne geneeskunde-allergologie',
-            63 => 'klinische neuropsychologie',
-            65 => 'verpl. spec. prev. zorg bij som. aandoeningen',
-            66 => 'verpl. spec. acute zorg bij som. aandoeningen',
-            67 => 'verpl. spec. intensieve zorg bij som. aandoeningen',
-            68 => 'verpl. spec. chronische zorg bij som. aandoeningen',
-            69 => 'verpl. spec. geestelijke gezondheidszorg',
-            70 => 'jeugdgezondheidszorg',
-            71 => 'spoedeisendehulp',
-            74 => 'sportgeneeskunde',
-            75 => 'openbaar apotheker'
+            2 => 'Allergologie (allergoloog)',
+            3 => 'Anesthesiologie (anesthesioloog)',
+            4 => 'Huisartsgeneeskunde met apotheek (Apoth. Huisarts)',
+            8 => 'Arbeid en gezond - bedrijfsgeneeskunde',
+            10 => 'Cardiologie (cardioloog)',
+            11 => 'Cardio-thoracale chirurgie',
+            12 => 'Dermatologie en venerologie (dermatoloog)',
+            13 => 'Maag-darm-leverziekten (maag-darm-leverarts)',
+            14 => 'Heelkunde (chirurg)',
+            15 => 'Huisartsgeneeskunde (huisarts)',
+            16 => 'Interne geneeskunde (internist)',
+            18 => 'Keel-, neus- en oorheelkunde (kno-arts)',
+            19 => 'Kindergeneeskunde (kinderarts)',
+            20 => 'Klinische chemie (arts klinische chemie)',
+            21 => 'Klinische genetica (klinisch geneticus)',
+            22 => 'Klinische geriatrie (klinisch geriater)',
+            23 => 'Longziekten en tuberculose (longarts)',
+            24 => 'Medische microbiologie (arts-microbioloog)',
+            25 => 'Neurochirurgie (neurochirurg)',
+            26 => 'Neurologie (neuroloog)',
+            30 => 'Nucleaire geneeskunde (nucleair geneeskundige)',
+            31 => 'Oogheelkunde (oogarts)',
+            32 => 'Orthopedie (orthopeed)',
+            33 => 'Pathologie (patholoog)',
+            34 => 'Plastische chirurgie (plastisch chirurg)',
+            35 => 'Psychiatrie (psychiater)',
+            39 => 'Radiologie (radioloog)',
+            40 => 'Radiotherapie (radiotherapeut)',
+            41 => 'Reumatologie (reumatoloog)',
+            42 => 'Revalidatiegeneeskunde (revalidatiearts)',
+            43 => 'Maatschappij en gezondheid  (beëindigd per 01-01-2007)',
+            45 => 'Urologie (uroloog)',
+            46 => 'Obstetrie en gynaecologie (gynaecoloog)',
+            47 => 'Specialisme ouderengeneeskunde',
+            48 => 'Arbeid en gezondheid - verzekeringsgeneeskunde',
+            50 => 'Zenuw- en zielsziekten (zenuwarts)',
+            53 => 'Dento-maxillaire orthopaedie (orthodontist)',
+            54 => 'Mondziekten en kaakchirurgie (kaakchirurg)',
+            55 => 'Maatschappij en gezondheid',
+            56 => 'Geneeskunde voor verstandelijk gehandicapten',
+            60 => 'Ziekenhuisfarmacie (ziekenhuisapotheker)',
+            61 => 'Klinische psychologie (klinisch psycholoog)',
+            62 => 'Interne geneeskunde-allergologie',
+            63 => 'Klinische neuropsychologie',
+            65 => 'Verpl. spec. prev. zorg bij som. aandoeningen',
+            66 => 'Verpl. spec. acute zorg bij som. aandoeningen',
+            67 => 'Verpl. spec. intensieve zorg bij som. aandoeningen',
+            68 => 'Verpl. spec. chronische zorg bij som. aandoeningen',
+            69 => 'Verpl. spec. geestelijke gezondheidszorg',
+            70 => 'Jeugdgezondheidszorg (Profiel KNMG Jeugdarts)',
+            71 => 'Spoedeisendehulp  (Profiel SEH Arts KNMG)',
+            74 => 'Sportgeneeskunde',
+            75 => 'Openbaar apotheker',
         );
+
         if (isset($list[$code])) {
             return $list[$code];
         }
@@ -215,6 +212,7 @@ class ResponseParser
             2 => 'Voorschrijfbevoegdheid Diabetes Mellitus',
             3 => 'Voorschrijfbevoegdheid Oncologie'
         );
+
         if (isset($list[$code])) {
             return $list[$code];
         }
@@ -230,6 +228,7 @@ class ResponseParser
             5 => 'Clausule (conversie uit REGBIG)',
             6 => 'Geclausuleerde inschrijving (conversie uit REGBIG)',
         );
+
         if (isset($list[$code])) {
             return $list[$code];
         }
