@@ -48,7 +48,7 @@ class ResponseParserTest extends SoapClientTestCase
         // Specialisms
         $this->assertArrayHasKey('specialisms', $result);
         $this->assertCount(1, $result['specialisms']);
-        $this->assertSame('huisartsgeneeskunde', $result['specialisms'][0]['name']);
+        $this->assertSame('Huisartsgeneeskunde (huisarts)', $result['specialisms'][0]['name']);
         $this->assertSame('12345678910', $result['specialisms'][0]['bigNumber']);
         $this->assertNull($result['specialisms'][0]['start']);
         $this->assertNull($result['specialisms'][0]['end']);
