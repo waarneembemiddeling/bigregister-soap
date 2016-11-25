@@ -123,7 +123,7 @@ class ResponseParser
             '82' => 'Klinisch technologen',
             '83' => 'Apothekersassistenten',
             '84' => 'Klinisch Fysici',
-            '85' => 'Tandprothetica',
+            '85' => 'Tandprothetici',
             '86' => 'Verzorgenden individuele gezondheidszorg',
             '87' => 'Optometristen',
             '88' => 'Huidtherapeuten',
