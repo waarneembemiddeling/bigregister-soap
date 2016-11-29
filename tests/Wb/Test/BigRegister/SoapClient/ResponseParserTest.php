@@ -44,6 +44,7 @@ class ResponseParserTest extends SoapClientTestCase
         $this->assertSame('1998-02-06', $result['articles'][0]['start']->format('Y-m-d'));
         $this->assertNull($result['articles'][0]['end']);
         $this->assertSame('Artsen', $result['articles'][0]['profession']);
+        $this->assertSame('01', $result['articles'][0]['professionCode']);
 
         // Specialisms
         $this->assertArrayHasKey('specialisms', $result);

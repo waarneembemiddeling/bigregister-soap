@@ -38,6 +38,7 @@ class ResponseParser
                             $article['end'] = new \DateTime($registration->ArticleRegistrationEndDate);
                         }
                         $article['profession'] = $this->getProfession($registration->ProfessionalGroupCode);
+                        $article['professionCode'] = $registration->ProfessionalGroupCode;
 
                         $return['articles'][] = $article;
                     }
