@@ -57,6 +57,7 @@ class ResponseParser
                             $specialism['end'] = new \DateTime($row->EndDate);
                         }
                         $specialism['name'] = $this->getSpecialism($row->TypeOfSpecialismId);
+                        $specialism['code'] = $row->TypeOfSpecialismId;
                         $return['specialisms'][] = $specialism;
                     }
                 }
