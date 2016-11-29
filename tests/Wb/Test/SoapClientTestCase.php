@@ -8,15 +8,20 @@
 
 namespace Wb\Test;
 
-class SoapClientTestCase extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use Wb\BigRegister\SoapClient\Client;
+
+class SoapClientTestCase extends TestCase
 {
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|Client
+     */
     public function getSoapClient()
     {
-        $client = $this->getMock(
-            'Wb\BigRegister\SoapClient\Client',
-            array('__doRequest'),
-            array(__DIR__.'/../../../resources/bigregister.wsdl')
-        );
+        $client = $this->getMockBuilder(Client::class)
+            ->setMethods(['__doRequest'])
+            ->setConstructorArgs([__DIR__.'/../../../resources/bigregister.wsdl'])
+            ->getMock();
 
         $client->expects($this->any())
             ->method('__doRequest')
