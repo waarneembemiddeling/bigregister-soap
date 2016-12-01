@@ -175,7 +175,7 @@ class ResponseParser
             40 => 'Radiotherapie (radiotherapeut)',
             41 => 'Reumatologie (reumatoloog)',
             42 => 'Revalidatiegeneeskunde (revalidatiearts)',
-            43 => 'Maatschappij en gezondheid  (beëindigd per 01-01-2007)',
+            43 => 'Maatschappij en gezondheid',
             45 => 'Urologie (uroloog)',
             46 => 'Obstetrie en gynaecologie (gynaecoloog)',
             47 => 'Specialisme ouderengeneeskunde',
@@ -195,9 +195,9 @@ class ResponseParser
             68 => 'Verpl. spec. chronische zorg bij som. aandoeningen',
             69 => 'Verpl. spec. geestelijke gezondheidszorg',
             70 => 'Jeugdgezondheidszorg (Profiel KNMG Jeugdarts)',
-            71 => 'Spoedeisendehulp  (Profiel SEH Arts KNMG)',
+            71 => 'Spoedeisendehulp (Profiel SEH Arts KNMG)',
             74 => 'Sportgeneeskunde',
-            75 => 'Openbaar apotheker',
+            75 => 'Openbare Farmacie',
         );
 
         if (isset($list[$code])) {
