@@ -44,11 +44,13 @@ class ResponseParserTest extends SoapClientTestCase
         $this->assertSame('1998-02-06', $result['articles'][0]['start']->format('Y-m-d'));
         $this->assertNull($result['articles'][0]['end']);
         $this->assertSame('Artsen', $result['articles'][0]['profession']);
+        $this->assertSame('01', $result['articles'][0]['professionCode']);
 
         // Specialisms
         $this->assertArrayHasKey('specialisms', $result);
         $this->assertCount(1, $result['specialisms']);
         $this->assertSame('Huisartsgeneeskunde (huisarts)', $result['specialisms'][0]['name']);
+        $this->assertSame('15', $result['specialisms'][0]['code']);
         $this->assertSame('12345678910', $result['specialisms'][0]['bigNumber']);
         $this->assertNull($result['specialisms'][0]['start']);
         $this->assertNull($result['specialisms'][0]['end']);
@@ -66,7 +68,7 @@ class ResponseParserTest extends SoapClientTestCase
         $this->assertInstanceOf('DateTime', $result['judgements'][0]['end']);
         $this->assertSame('2020-03-30', $result['judgements'][0]['end']->format('Y-m-d'));
         $this->assertSame('Hello world', $result['judgements'][0]['description']);
-        
+
         // Limitations
         $this->assertArrayHasKey('limitations', $result);
         $this->assertCount(0, $result['limitations']);

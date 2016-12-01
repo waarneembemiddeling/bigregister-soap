@@ -38,6 +38,7 @@ class ResponseParser
                             $article['end'] = new \DateTime($registration->ArticleRegistrationEndDate);
                         }
                         $article['profession'] = $this->getProfession($registration->ProfessionalGroupCode);
+                        $article['professionCode'] = $registration->ProfessionalGroupCode;
 
                         $return['articles'][] = $article;
                     }
@@ -56,6 +57,7 @@ class ResponseParser
                             $specialism['end'] = new \DateTime($row->EndDate);
                         }
                         $specialism['name'] = $this->getSpecialism($row->TypeOfSpecialismId);
+                        $specialism['code'] = $row->TypeOfSpecialismId;
                         $return['specialisms'][] = $specialism;
                     }
                 }
@@ -119,6 +121,12 @@ class ResponseParser
             '18' => 'Apotheekhoudende artsen',
             '25' => 'Gz-psychologen',
             '30' => 'Verpleegkundigen',
+            '81' => 'Physician assistants',
+            '82' => 'Klinisch technologen',
+            '83' => 'Apothekersassistenten',
+            '84' => 'Klinisch Fysici',
+            '85' => 'Tandprothetici',
+            '86' => 'Verzorgenden individuele gezondheidszorg',
             '87' => 'Optometristen',
             '88' => 'Huidtherapeuten',
             '89' => 'Diëtisten',
@@ -131,10 +139,7 @@ class ResponseParser
             '96' => 'Podotherapeuten',
             '97' => 'Radiodiagnostisch laboranten',
             '98' => 'Radiotherapeutisch laboranten',
-            '99' => 'Onbekend',
-            '83' => 'Apothekersassistenten',
-            '85' => 'Tandprothetica',
-            '86' => 'Verzorgenden individuele gezondheidszorg'
+            '99' => 'Onbekend'
         );
 
         if (isset($list[$code])) {
