@@ -23,8 +23,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Wb\\BigRegister\\SoapClient": "src/",
-            "Wb\\Test": "tests/"
+            "Wb\\BigRegister\\": "src/",
+            "Wb\\Test\\": "tests/"
         }
     }
 }
