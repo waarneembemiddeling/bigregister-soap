@@ -62,12 +62,12 @@ class Client extends BaseSoapClient
             // Disable error handler for now
             $previous = set_error_handler(function() {}, E_ALL);
             try {
-                parent::SoapClient($wsdl, $options);
+                parent::__construct($wsdl, $options);
             } catch (\SoapFault $e) {}
             // Restore previous error handler
             set_error_handler($previous);
         } else {
-            parent::SoapClient($wsdl, $options);
+            parent::__construct($wsdl, $options);
         }
     }
 

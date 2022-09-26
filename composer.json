@@ -1,6 +1,6 @@
 {
     "name": "waarneembemiddeling/bigregister-soap",
-    "description": "php 5.6+ implementation of the Dutch BIG Register SOAP interface",
+    "description": "php 8.0+ implementation of the Dutch BIG Register SOAP interface",
     "keywords": ["BIG register", "BIG-register", "BIG-nummer", "bigregister.nl"],
     "license": "MIT",
     "authors": [
@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.6.0",
+        "php": "~8.0.0",
         "ext-soap": "*",
         "doctrine/cache": ">=1.0"
     },
