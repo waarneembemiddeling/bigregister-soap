@@ -12,7 +12,7 @@ Start by [installing composer](http://getcomposer.org/doc/01-basic-usage.md#inst
     $ php composer.phar require "waarneembemiddeling/bigregister-soap"
 
 ## Requirements
-PHP >=5.6.0 and ext-soap
+PHP 8.0 and ext-soap
 
 ## Usage
 Most users will be satisfied by using the <code>Service</code> class provided. The service class parses the response
