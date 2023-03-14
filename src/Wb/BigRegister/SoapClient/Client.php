@@ -71,7 +71,7 @@ class Client extends BaseSoapClient
         }
     }
 
-    public function __call($method, $arguments)
+    public function __call($method, $arguments): mixed
     {
         try {
             return parent::__call($method, $arguments);
@@ -80,7 +80,7 @@ class Client extends BaseSoapClient
         }
     }
 
-    public function __doRequest($request, $location, $action, $version, $one_way = 0 )
+    public function __doRequest($request, $location, $action, $version, $one_way = 0 ): ?string
     {
         $id = md5($request . $location . $action . $version);
         if ($this->cache && $this->cache->contains($id)) {
