@@ -20,7 +20,7 @@ class Client extends BaseSoapClient
 
     public function __construct($wsdl = null, array $userOptions = array(), Cache $cache = null, $cacheTtl = 0, $disableErrorsInConstructor = false)
     {
-        $wsdl = $wsdl ? $wsdl : 'http://webservices.cibg.nl/Ribiz/OpenbaarV4.asmx?wsdl';
+        $wsdl = $wsdl ? $wsdl : 'https://api.bigregister.nl/zksrv/soap/4?wsdl';
         $namespace = 'Wb\\BigRegister\\SoapClient\\Model\\';
         $options = array(
             'features'       => SOAP_SINGLE_ELEMENT_ARRAYS,
